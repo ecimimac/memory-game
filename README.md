@@ -2,19 +2,27 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Important Notes](#important notes)
+* [Game Objective](#game objective)
+* [How to Play](#how to play)
 
-## Instructions
+## Important Notes
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is Project 2 under the course Web Programming with JavaScript of Udacity's Front-End Web Developer Nanodegree Program. It utilizes the started code provided by Udacity.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Game objective
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+The object of the game is to match all cards in as little time or moves as possible.
 
-## Contributing
+## How to Play
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+To play the game, the user clicks on an unopened card. The timer starts as soon as the first card is selected.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+The user must then find the card's matching pair from the rest of the unopened cards. If a matching card is found, then the 2 cards are left facing up. If a non-matching card was selected, then both cards are hidden once more and the user must repeat the process of selecting cards until all cards have been matched. A move counter tracks the number of clicks made.
+
+Stars are awarded at the end of the game based on the number of moves made.
+3 stars = 14 moves or less
+2 stars = 15 - 24 moves
+1 star  = 25 moves and above
+
+An option is available to the user to restart the game.
