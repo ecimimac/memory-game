@@ -102,36 +102,44 @@ function clickCard() {
       //This is the 1st  card clicked
       cardsClicked.push(this);
       this.classList.add("open", "show");
+      
+      //Increment move counter
+      incrementMoves();
+      
     } else {
-      //This is the 2nd card clicked
-      cardsClicked.push(this);
-      this.classList.add("open", "show");
+      //This is the 2nd card clicked; check to make sure it's an unopened card first
+      if (!this.classList.contains("open")) {
+        
+        //Increment move counter
+        incrementMoves();
+        
+        cardsClicked.push(this);
+        this.classList.add("open", "show");
 
-      //Compare current card with previously opened card
-      if (this.innerHTML === cardsClicked[0].innerHTML) {
-        cardsMatched += 2;
-        cardsClicked[0].classList.remove("animated", "shake");
-        this.classList.remove("animated", "shake");
-        cardsClicked[0].classList.add("match", "animated", "rubberBand");
-        this.classList.add("match", "animated", "rubberBand");
-        cardsClicked = [];
-      } else {
-        const prevCard = cardsClicked[0];
-        const currCard = this;
-        prevCard.classList.add("animated", "shake");
-        currCard.classList.add("animated", "shake");
-        setTimeout(() => {
-          prevCard.classList.remove("open", "show");
-          currCard.classList.remove("open", "show");
-          prevCard.classList.remove("animated", "shake");
-          currCard.classList.remove("animated", "shake");
-        },1000);
-        //Clear out the array that holds the 2 opened cards
-        cardsClicked = [];
+        //Compare current card with previously opened card
+        if (this.innerHTML === cardsClicked[0].innerHTML) {
+          cardsMatched += 2;
+          cardsClicked[0].classList.remove("animated", "shake");
+          this.classList.remove("animated", "shake");
+          cardsClicked[0].classList.add("match", "animated", "rubberBand");
+          this.classList.add("match", "animated", "rubberBand");
+          cardsClicked = [];
+        } else {
+          const prevCard = cardsClicked[0];
+          const currCard = this;
+          prevCard.classList.add("animated", "shake");
+          currCard.classList.add("animated", "shake");
+          setTimeout(() => {
+            prevCard.classList.remove("open", "show");
+            currCard.classList.remove("open", "show");
+            prevCard.classList.remove("animated", "shake");
+            currCard.classList.remove("animated", "shake");
+          },1000);
+          //Clear out the array that holds the 2 opened cards
+          cardsClicked = [];
+        }
       }
     }
-    //Increment move counter
-    incrementMoves();
   }
   //If all cards have been matched, declare game over
   gameOver();
@@ -191,7 +199,7 @@ function gameOver() {
       //Stop the timer
       clearTimeout(time);
       showModal();
-    }    
+    }
   }
 }
 
@@ -227,6 +235,7 @@ function restartGame() {
   startGame = true;
   gameEnd = false;
   moves.textContent = movesMade;
+  cardsClicked = [];
   initGame();
 }
 
