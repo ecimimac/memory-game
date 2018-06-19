@@ -21,8 +21,8 @@ To play the game, the user clicks on an unopened card. The timer starts as soon 
 The user must then find the card's matching pair from the rest of the unopened cards. If a matching card is found, then the 2 cards are left facing up. If a non-matching card was selected, then both cards are hidden once more and the user must repeat the process of selecting cards until all cards have been matched. A move counter tracks the number of clicks made.
 
 Stars are awarded at the end of the game based on the number of moves made.
-3 stars = 14 moves or less
-2 stars = 15 - 24 moves
-1 star  = 25 moves and above
+* 3 stars = 14 moves or less
+* 2 stars = 15 - 24 moves
+* 1 star  = 25 moves and above
 
-An option is available to the user to restart the game.
+The user is given the option to restart the game.
